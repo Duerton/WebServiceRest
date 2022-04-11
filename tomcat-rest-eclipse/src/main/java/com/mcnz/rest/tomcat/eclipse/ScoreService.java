@@ -38,7 +38,7 @@ public class ScoreService {
     @Path("/score/ties")
     @Produces("text/plain")
     public int increaseTies() {
-    	return Score.WINS++;
+    	return Score.TIES++;
     }
 
     @POST
@@ -47,6 +47,27 @@ public class ScoreService {
     public int increaseLosses() {
     	return Score.LOSSES++;
     }  
+    
+    @DELETE
+    @Path("/score/losses")
+    @Produces("text/plain")
+    public int decreaseLosses() {
+    	return Score.LOSSES = 0;
+    }  
+    
+    @DELETE
+    @Path("/score/wins")
+    @Produces("text/plain")
+    public int decreaseWins() {
+    	return Score.WINS = 0;
+    } 
+    
+    @DELETE
+    @Path("/score/ties")
+    @Produces("text/plain")
+    public int decreaseTies() {
+    	return Score.TIES = 0;
+    }
     
     @GET
     @Path("/score")
